@@ -1,0 +1,26 @@
+<div class="flex-container">
+  <mat-card class="login-card">
+    <mat-card-header>
+      <div mat-card-avatar class="login-icon">
+        <mat-icon>restaurant_menu</mat-icon>
+      </div>
+      <mat-card-title>Welcome to calorie counter</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form class="login-form" [formGroup]="loginForm">
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Enter your login" formControlName="login" required>
+          <mat-error *ngIf="loginForm.get('login').invalid">You must enter your login</mat-error>
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <input type="password" matInput placeholder="Enter your password" formControlName="password" required>
+          <mat-error *ngIf="loginForm.get('password').invalid">{{getPasswordErrorMessage()}}</mat-error>
+        </mat-form-field>
+      </form>
+    </mat-card-content>
+    <mat-card-actions class="card-actions">
+      <button [disabled]="!loginForm.valid" mat-button (click)="xxx()">Login</button>
+      <button [disabled]="!loginForm.valid" mat-button (click)="xxx()">Registration</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
