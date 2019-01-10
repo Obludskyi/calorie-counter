@@ -4,17 +4,20 @@ import { SimpleLayoutComponent } from './components/simple-layout/simple-layout.
 import {NavLayoutComponent} from './components/nav-layout/nav-layout.component';
 
 export const routes: Routes = [
-  {path: '', redirectTo: 'nav', pathMatch: 'full'},
+  {path: '', redirectTo: 'calories', pathMatch: 'full'},
+  {
+    path: '',
+    component: NavLayoutComponent,
+    children: [
+      { path: 'calories', loadChildren: './components/calories/calories.module#CaloriesModule' },
+    ],
+  },
   {
     path: '',
     component: SimpleLayoutComponent,
     children: [
       { path: 'login', loadChildren: './components/login/login.module#LoginModule' },
     ],
-  },
-  {
-    path: 'nav',
-    component: NavLayoutComponent,
   },
 
   // otherwise redirect to NotFoundPage
